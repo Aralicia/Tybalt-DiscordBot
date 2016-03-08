@@ -24,6 +24,17 @@ class TybaltApi:
         response = subprocess.check_output(["php", path] + list(skill));
         await self.bot.say(response.decode());
 
+    @commands.command(pass_context=True, no_pm=True)
+    async def trait(self, ctx, *trait):
+        """Describe a trait
+
+        Example:
+        !trait Heal Resonator
+        """
+        path = self.api_paths['trait'];
+        response = subprocess.check_output(["php", path] + list(trait));
+        await self.bot.say(response.decode());
+
 def setup(bot):
     n = TybaltApi(bot)
     bot.add_cog(n)
