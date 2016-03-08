@@ -22,7 +22,7 @@ class TybaltApi:
         """
         path = self.api_paths['skill'];
         response = subprocess.check_output(["php", path, skill]);
-        await self.bot.say(response);
+        await self.bot.say(response.decode());
 
 def setup(bot):
     n = TybaltApi(bot)
