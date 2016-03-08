@@ -18,3 +18,6 @@ class TybaltMegaserver:
         """
         try:
             await self.bot.say("http://wiki.guildwars2.com/index.php?title=Special%3ASearch&search="+search+"&go=Go")
+        except Exception as e:
+            print(e)
+            await self.bot.say("Something went wrong.")
