@@ -14,14 +14,14 @@ class TybaltApi:
         self.api_paths = fileIO("data/tybalt/api.json", "load")
 
     @commands.command(pass_context=True, no_pm=True)
-    async def skill(self, ctx, skill:str):
+    async def skill(self, ctx, *skill):
         """Describe a skill
 
         Example:
         !skill Fireball
         """
         path = self.api_paths['skill'];
-        response = subprocess.check_output(["php", path, skill]);
+        response = subprocess.check_output(["php", path] + list(skill));
         await self.bot.say(response.decode());
 
 def setup(bot):
