@@ -35,6 +35,50 @@ class TybaltApi:
         response = subprocess.check_output(["php", path] + list(trait));
         await self.bot.say(response.decode());
 
+    @commands.command(pass_context=True, no_pm=True)
+    async def item(self, ctx, *item):
+        """Describe a item
+
+        Example:
+        !item Sword
+        """
+        path = self.api_paths['item'];
+        response = subprocess.check_output(["php", path] + list(item));
+        await self.bot.say(response.decode());
+
+    @commands.command(pass_context=True, no_pm=True)
+    async def recipe(self, ctx, *recipe):
+        """Describe a recipe
+
+        Example:
+        !recipe wood
+        """
+        path = self.api_paths['recipe'];
+        response = subprocess.check_output(["php", path] + list(recipe));
+        await self.bot.say(response.decode());
+
+    @commands.command(pass_context=True, no_pm=True)
+    async def skin(self, ctx, *skin):
+        """Describe a skin
+
+        Example:
+        !skin Heal Resonator
+        """
+        path = self.api_paths['skin'];
+        response = subprocess.check_output(["php", path] + list(skin));
+        await self.bot.say(response.decode());
+
+    @commands.command(pass_context=True, no_pm=True)
+    async def convert(self, ctx, *convert):
+        """Show the content of the Chat Link
+
+        Example:
+        !convert [&BnMVAAA=]
+        """
+        path = self.api_paths['convert'];
+        response = subprocess.check_output(["php", path] + list(convert));
+        await self.bot.say(response.decode());
+
 def setup(bot):
     n = TybaltApi(bot)
     bot.add_cog(n)
