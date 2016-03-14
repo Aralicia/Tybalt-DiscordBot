@@ -26,7 +26,11 @@ class TybaltGroup:
         }ctx.message.author, 'args':test})
         response = subprocess.check_output(["php", path, args]);
         data = json.loads(response.decode());
-        await self.bot.say(data.print);
+        if data.pmTo > 1:
+            for pm in data.pmTo:
+                await self.bot.send_message(pm, data.print);
+        else:        
+            await self.bot.say(data.print);
 
 def setup(bot):
     n = TybaltGroup(bot)
