@@ -23,7 +23,7 @@ class TybaltGroup:
         args = json.dumps({'author': {
             'name' : ctx.message.author.name,
             'id' : ctx.message.author.id,
-        }ctx.message.author, 'args':test})
+        }, 'args':test})
         response = subprocess.check_output(["php", path, args]);
         data = json.loads(response.decode());
         if data.pmTo > 1:
