@@ -15,22 +15,21 @@ class TybaltGroup:
         self.group_paths = fileIO("data/tybalt/groups.json", "load")
 
     @commands.command(pass_context=True, no_pm=True)
-    async def test(self, ctx, *test):
-        """test command
+    async def raid(self, ctx, *raid):
+        """raid command
         """
-        path = self.group_paths['test'];
+        path = self.group_paths['raid'];
         
         args = json.dumps({'author': {
             'name' : ctx.message.author.name,
             'id' : ctx.message.author.id,
-        }, 'args':test})
+        }, 'args':raid})
         response = subprocess.check_output(["php", path, args]);
         data = json.loads(response.decode());
-        if data.pmTo > 1:
-            for pm in data.pmTo:
-                await self.bot.send_message(pm, data.print);
-        else:        
-            await self.bot.say(data.print);
+#        if data.pmTo > 1:
+#            for pm in data.pmTo:
+#                await self.bot.send_message(pm, data.print);
+        await self.bot.say(data['print']);
 
 def setup(bot):
     n = TybaltGroup(bot)

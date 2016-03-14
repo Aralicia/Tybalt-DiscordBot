@@ -87,7 +87,7 @@ class TybaltApi:
         !spec Explosives
         """
         path = self.api_paths['spec'];
-        response = subprocess.check_output(["php", path] + list(convert));
+        response = subprocess.check_output(["php", path] + list(spec));
         await self.bot.say(response.decode());        
 
 def setup(bot):
