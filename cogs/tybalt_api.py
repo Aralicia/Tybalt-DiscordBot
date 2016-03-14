@@ -79,6 +79,17 @@ class TybaltApi:
         response = subprocess.check_output(["php", path] + list(convert));
         await self.bot.say(response.decode());
 
+    @commands.command(pass_context=True, no_pm=True)
+    async def spec(self, ctx, *spec):
+        """Describe a specialization
+
+        Example:
+        !spec Explosives
+        """
+        path = self.api_paths['spec'];
+        response = subprocess.check_output(["php", path] + list(convert));
+        await self.bot.say(response.decode());        
+
 def setup(bot):
     n = TybaltApi(bot)
     bot.add_cog(n)
