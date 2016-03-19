@@ -10,7 +10,7 @@ class TybaltMegaserver:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(pass_context=True, no_pm=True, alias=["NA"])
+    @commands.command(pass_context=True, no_pm=True, aliases=["NA"])
     async def na(self, ctx):
         """Join NA group/role
 
@@ -25,9 +25,6 @@ class TybaltMegaserver:
                 await self.bot.remove_roles(author, role_remove)
                 await self.bot.add_roles(author, role_add)
                 await self.bot.say("Done ! You are now a NA player.")
-            elif author.id == 152711167461031936 : 
-                await self.bot.remove_roles(author, role_remove, role_add)
-                await self.bot.say("Is that you, Jan ? I'll demote you instead")
             else :
                 await self.bot.remove_roles(author, role_remove, role_add)
                 await self.bot.say("Well, you **were** a NA player.")
@@ -37,7 +34,7 @@ class TybaltMegaserver:
             print(e)
             await self.bot.say("Something went wrong.")
 
-    @commands.command(pass_context=True, no_pm=True, alias=["EU"])
+    @commands.command(pass_context=True, no_pm=True, aliases=["EU"])
     async def eu(self, ctx):
         """Join EU group/role
 
@@ -52,9 +49,6 @@ class TybaltMegaserver:
                 await self.bot.remove_roles(author, role_remove)
                 await self.bot.add_roles(author, role_add)
                 await self.bot.say("Done ! You are now a EU player.")
-            elif author.id == 152711167461031936 : 
-                await self.bot.remove_roles(author, role_remove, role_add)
-                await self.bot.say("Is that you, Jan ? I'll demote you instead")
             else :
                 await self.bot.remove_roles(author, role_remove, role_add)
                 await self.bot.say("Well, you **were** a EU player.")
