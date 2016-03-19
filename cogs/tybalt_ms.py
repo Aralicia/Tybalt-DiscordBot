@@ -10,7 +10,7 @@ class TybaltMegaserver:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(pass_context=True, no_pm=True)
+    @commands.command(pass_context=True, no_pm=True, alias=["NA"])
     async def na(self, ctx):
         """Join NA group/role
 
@@ -37,7 +37,7 @@ class TybaltMegaserver:
             print(e)
             await self.bot.say("Something went wrong.")
 
-    @commands.command(pass_context=True, no_pm=True)
+    @commands.command(pass_context=True, no_pm=True, alias=["EU"])
     async def eu(self, ctx):
         """Join EU group/role
 
