@@ -4,6 +4,7 @@ from .utils.dataIO import fileIO
 from .utils import checks
 from __main__ import user_allowed, send_cmd_help
 import os
+import random
 
 class CustomCommands:
     """Custom commands."""
@@ -104,6 +105,16 @@ class CustomCommands:
                 await self.bot.say("There are no custom commands in this server. Use addcom [command] [text]")
         else:
             await self.bot.say("There are no custom commands in this server. Use addcom [command] [text]")
+
+    @commands.command(pass_context=True, no_pm=True)
+    async def randcom(self, ctx):
+        """execute a random custom command"""
+        server = ctx.message.server
+        if server.id in self.c_commands:
+            cmdlist = self.c_commands[server.id]
+            if cmdlist:
+                msg = random.choice(list(cmdlist));
+                await self.bot.send_message(ctx.message.channel, cmdlist[msg])
 
     async def checkCC(self, message):
         if message.author.id == self.bot.user.id or len(message.content) < 2 or message.channel.is_private:
