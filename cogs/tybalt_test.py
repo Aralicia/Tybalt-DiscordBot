@@ -18,7 +18,7 @@ class TybaltTest:
         """test dev command
         """
         path = self.group_paths['test']
-        await tybalt_call(ctx, path, '!skill', *data)
+        await tybalt_call(ctx, path, '!item', *data)
 
 def setup(bot):
     n = TybaltTest(bot)

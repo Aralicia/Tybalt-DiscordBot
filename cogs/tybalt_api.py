@@ -42,8 +42,7 @@ class TybaltApi:
         !item Sword
         """
         path = self.api_paths['item'];
-        response = subprocess.check_output(["php", path] + list(item));
-        await self.bot.say(response.decode());
+        await tybalt_call(ctx, path, '!item', *item)
 
     @commands.command(pass_context=True, no_pm=True)
     async def recipe(self, ctx, *recipe):
