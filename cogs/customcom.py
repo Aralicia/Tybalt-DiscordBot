@@ -23,6 +23,7 @@ class CustomCommands:
         """
         server = ctx.message.server
         user = ctx.message.author
+        username = '<@'+user.id+'>'
         command = command.lower()
         if command in self.bot.commands.keys():
             await self.bot.say("That command is already a standard command.")
@@ -34,9 +35,9 @@ class CustomCommands:
             cmdlist[command] = text
             self.c_commands[server.id] = cmdlist
             fileIO("data/customcom/commands.json", "save", self.c_commands)
-            await self.bot.say("{} Custom command '{}' successfully added.".format(user, command))
+            await self.bot.say("{} Custom command '{}' successfully added.".format(username, command))
         else:
-            await self.bot.say("{} This command already exists. Use editcom to edit it.".format(user))
+            await self.bot.say("{} This command already exists. Use editcom to edit it.".format(username))
 
     @commands.command(pass_context=True, no_pm=True)
     #@checks.mod_or_permissions(manage_server=True)
@@ -48,6 +49,7 @@ class CustomCommands:
         """
         server = ctx.message.server
         user = ctx.message.author
+        username = '<@'+user.id+'>'
         command = command.lower()
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
@@ -55,11 +57,11 @@ class CustomCommands:
                 cmdlist[command] = text
                 self.c_commands[server.id] = cmdlist
                 fileIO("data/customcom/commands.json", "save", self.c_commands)
-                await self.bot.say("{} Custom command '{}' successfully edited.".format(user, command))
+                await self.bot.say("{} Custom command '{}' successfully edited.".format(username, command))
             else:
-                await self.bot.say("{} That command doesn't exist. Use addcom [command] [text]".format(user))
+                await self.bot.say("{} That command doesn't exist. Use addcom [command] [text]".format(username))
         else:
-             await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(user))
+             await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(username))
 
     @commands.command(pass_context=True, no_pm=True)
     #@checks.mod_or_permissions(manage_server=True)
@@ -70,6 +72,7 @@ class CustomCommands:
         !delcom yourcommand"""
         server = ctx.message.server
         user = ctx.message.author
+        username = '<@'+user.id+'>'
         command = command.lower()
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
@@ -77,11 +80,11 @@ class CustomCommands:
                 cmdlist.pop(command, None)
                 self.c_commands[server.id] = cmdlist
                 fileIO("data/customcom/commands.json", "save", self.c_commands)
-                await self.bot.say("{} Custom command '{}' successfully deleted.".format(user, command))
+                await self.bot.say("{} Custom command '{}' successfully deleted.".format(username, command))
             else:
-                await self.bot.say("{} That command doesn't exist.".format(user))
+                await self.bot.say("{} That command doesn't exist.".format(username))
         else:
-            await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(user))
+            await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(username))
 
     @commands.command(pass_context=True, no_pm=True)
     async def customcommands(self, ctx):
@@ -113,11 +116,12 @@ class CustomCommands:
         """execute a random custom command"""
         server = ctx.message.server
         user = ctx.message.author
+        username = '<@'+user.id+'>'
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
             if cmdlist:
                 msg = random.choice(list(cmdlist));
-                await self.bot.send_message(ctx.message.channel, '{} {}'.format(user, cmdlist[cmd]))
+                await self.bot.send_message(ctx.message.channel, '{} {}'.format(username, cmdlist[msg]))
 
     async def checkCC(self, message):
         if message.author.id == self.bot.user.id or len(message.content) < 2 or message.channel.is_private:
@@ -129,15 +133,16 @@ class CustomCommands:
         msg = message.content
         server = message.server
         user = message.author
+        username = '<@'+user.id+'>'
         prefix = self.get_prefix(msg)
 
         if prefix and server.id in self.c_commands.keys():
             cmdlist = self.c_commands[server.id]
             cmd = msg[len(prefix):]
             if cmd in cmdlist.keys():
-                await self.bot.send_message(message.channel, '{} {}'.format(user, cmdlist[cmd]))
+                await self.bot.send_message(message.channel, '{} {}'.format(username, cmdlist[cmd]))
             elif cmd.lower() in cmdlist.keys():
-                await self.bot.send_message(message.channel, '{} {}'.format(user, cmdlist[cmd.lower()]))
+                await self.bot.send_message(message.channel, '{} {}'.format(username, cmdlist[cmd.lower()]))
 
     def get_prefix(self, msg):
         for p in self.bot.command_prefix:

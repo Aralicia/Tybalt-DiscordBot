@@ -58,6 +58,28 @@ class TybaltMegaserver:
             print(e)
             await self.bot.say("Something went wrong.")
 
+    @commands.command(pass_context=True, no_pm=True)
+    async def naisl(self, ctx):
+        """Join NAISL group/role
+
+        Example:
+        !naisl
+        """
+        author = ctx.message.author
+        role_eu = self.get_role_by_name(ctx.message.server, "eu")
+        role_na = self.get_role_by_name(ctx.message.server, "na")
+        try:
+            await self.bot.remove_roles(author, role_eu)
+            await self.bot.remove_roles(author, role_na)
+
+            await self.bot.say("You just lost EU and NA role. Naisled it !")
+        except discord.Forbidden:
+            await self.bot.say("I need permissions to edit roles first.")
+        except Exception as e:
+            print(e)
+            await self.bot.say("Something went wrong.")
+
+
     def get_role_by_name(self, server, name):
         roles = server.roles
         for role in roles:
