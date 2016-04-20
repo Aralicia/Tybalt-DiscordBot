@@ -69,6 +69,7 @@ class CustomCommands:
         Example:
         !delcom yourcommand"""
         server = ctx.message.server
+        user = ctx.message.author
         command = command.lower()
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
@@ -86,6 +87,7 @@ class CustomCommands:
     async def customcommands(self, ctx):
         """Shows custom commands list"""
         server = ctx.message.server
+        user = ctx.message.author
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
             if cmdlist:
@@ -110,6 +112,7 @@ class CustomCommands:
     async def randcom(self, ctx):
         """execute a random custom command"""
         server = ctx.message.server
+        user = ctx.message.author
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
             if cmdlist:
@@ -125,6 +128,7 @@ class CustomCommands:
 
         msg = message.content
         server = message.server
+        user = ctx.message.author
         prefix = self.get_prefix(msg)
 
         if prefix and server.id in self.c_commands.keys():
