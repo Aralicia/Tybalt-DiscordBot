@@ -13,6 +13,8 @@ import sys
 import logging
 import aiohttp
 import importlib
+import shutil
+import traceback
 
 #
 #  Red, a Discord bot by Twentysix, based on discord.py and its command extension
@@ -40,9 +42,10 @@ lock = False
 
 @bot.event
 async def on_ready():
-    users = str(len([m for m in bot.get_all_members()]))
+    users = str(len(set(bot.get_all_members())))
     servers = str(len(bot.servers))
     channels = str(len([c for c in bot.get_all_channels()]))
+    bot.uptime = int(time.perf_counter())
     print('------')
     print(bot.user.name + " is now online.")
     print('------')
@@ -51,7 +54,6 @@ async def on_ready():
     print(channels + " channels")
     print(users + " users")
     print("\n{0} active cogs with {1} commands\n".format(str(len(bot.cogs)), str(len(bot.commands))))
-    bot.uptime = int(time.perf_counter())
 
 @bot.event
 async def on_command(command, ctx):
@@ -143,7 +145,7 @@ async def _reload(*, module : str):
         await bot.say("Module reloaded.")
 
 
-@bot.command(pass_context=True, hidden=True) # Modified function, originally made by Rapptz 
+@bot.command(pass_context=True, hidden=True) # Modified function, originally made by Rapptz
 @checks.is_owner()
 async def debug(ctx, *, code : str):
     """Evaluates code"""
@@ -165,9 +167,10 @@ async def debug(ctx, *, code : str):
         censor = (settings.email, settings.password)
         r = "[EXPUNGED]"
         for w in censor:
-            result = result.replace(w, r)
-            result = result.replace(w.lower(), r)
-            result = result.replace(w.upper(), r)
+            if w != "":
+                result = result.replace(w, r)
+                result = result.replace(w.lower(), r)
+                result = result.replace(w.upper(), r)
     await bot.say(result)
 
 @bot.group(name="set", pass_context=True)
@@ -202,8 +205,8 @@ async def prefix(*prefixes):
     if prefixes == ():
         await bot.say("Example: setprefix [ ! ^ .")
         return
-    bot.command_prefix = list(prefixes)
-    settings.prefixes = list(prefixes)
+    bot.command_prefix = sorted(prefixes, reverse=True)
+    settings.prefixes = sorted(prefixes, reverse=True)
     if len(prefixes) > 1:
         await bot.say("Prefixes set")
     else:
@@ -240,6 +243,18 @@ async def avatar(url : str):
     except:
         await bot.say("Error.")
 
+@_set.command(name="token")
+@checks.is_owner()
+async def _token(token : str):
+    """Sets Red's login token"""
+    if len(token) < 50:
+        await bot.say("Invalid token.")
+    else:
+        settings.login_type = "token"
+        settings.email = token
+        settings.password = ""
+        await bot.say("Token set. Restart me.")
+
 @bot.command()
 @checks.is_owner()
 async def shutdown():
@@ -250,13 +265,19 @@ async def shutdown():
 @checks.is_owner()
 async def join(invite_url : discord.Invite):
     """Joins new server"""
-    try:
-        await bot.accept_invite(invite_url)
-        await bot.say("Server joined.")
-    except discord.NotFound:
-        await bot.say("The invite was invalid or expired.")
-    except discord.HTTPException:
-        await bot.say("I wasn't able to accept the invite. Try again.")
+    if bot.user.bot == True:
+        msg = "I have a **BOT** tag, so I must be invited with an OAuth2 link:\n"
+        msg += "`https://discordapp.com/oauth2/authorize?&client_id=`__**`MY_CLIENT_ID_HERE`**__`&scope=bot`\n"
+        msg += "For more information: https://twentysix26.github.io/Red-Docs/red_guide_bot_accounts/#bot-invites"
+        await bot.say(msg)
+    else:
+        try:
+            await bot.accept_invite(invite_url)
+            await bot.say("Server joined.")
+        except discord.NotFound:
+            await bot.say("The invite was invalid or expired.")
+        except discord.HTTPException:
+            await bot.say("I wasn't able to accept the invite. Try again.")
 
 @bot.command(pass_context=True)
 @checks.is_owner()
@@ -283,7 +304,7 @@ def user_allowed(message):
     author = message.author
 
     mod = bot.get_cog('Mod')
-    
+
     if mod is not None:
         if settings.owner == author.id:
             return True
@@ -323,6 +344,7 @@ def wait_for_answer(author):
         settings.owner = author.id
         print(author.name + " has been set as owner.")
         lock = False
+        owner.hidden = True
     else:
         print("setowner request has been ignored.")
         lock = False
@@ -344,19 +366,27 @@ def check_folders():
 
 def check_configs():
     if settings.bot_settings == settings.default_settings:
-        print("Red - First run configuration")
-        print("If you don't have one, create a NEW ACCOUNT for Red. Do *not* use yours. (https://discordapp.com)")
-        settings.email = input("\nEmail> ")
-        settings.password = input("\nPassword> ")
-
-        if not settings.email or not settings.password:
-            input("Email and password cannot be empty. Restart Red and repeat the configuration process.")
-            exit(1)
-
-        if "@" not in settings.email:
-            input("You didn't enter a valid email. Restart Red and repeat the configuration process.")
-            exit(1)
+        print("Red - First run configuration\n")
+        print("You either need a normal account or a bot account to use Red. *Do not* use your own.")
+        print("For more information on bot accounts see: https://discordapp.com/developers/docs/topics/oauth2#bot-vs-user-accounts")
+        print("If you're not interested in a bot account, create a normal account on https://discordapp.com")
+        print("Otherwise make one and copy the token from https://discordapp.com/developers/applications/me")
+        print("\nType your email or token:")
         
+        choice = input("> ")
+
+        if "@" not in choice and len(choice) >= 50: #Assuming token
+            settings.login_type = "token"
+            settings.email = choice
+        elif "@" in choice:
+            settings.login_type = "email"
+            settings.email = choice
+            settings.password = input("\nPassword> ")
+        else:
+            os.remove('data/red/settings.json')
+            input("Invalid input. Restart Red and repeat the configuration process.")
+            exit(1)
+
         print("\nChoose a prefix (or multiple ones, one at once) for the commands. Type exit when you're done. Example prefix: !")
         prefixes = []
         new_prefix = ""
@@ -364,11 +394,11 @@ def check_configs():
             new_prefix = input("Prefix> ")
             if new_prefix.lower() != "exit" and new_prefix != "":
                 prefixes.append(new_prefix)
-                #Remember we're using property's here, oh well...
-        settings.prefixes = prefixes
+                # Remember we're using property's here, oh well...
+        settings.prefixes = sorted(prefixes, reverse=True)
 
-        print("\nInput *your own* ID. You can type \@Yourname in chat to see it (copy only the numbers).")
-        print("If you want, you can also do it later with [prefix]set owner. Leave empty in that case.")
+        print("\nIf you know what an User ID is, input *your own* now and press enter.")
+        print("Otherwise you can just set yourself as owner later with '[prefix]set owner'. Leave empty and press enter in this case.")
         settings.owner = input("\nID> ")
         if settings.owner == "": settings.owner = "id_here"
         if not settings.owner.isdigit() or len(settings.owner) < 17:
@@ -398,7 +428,13 @@ def set_logger():
     logger = logging.getLogger("discord")
     logger.setLevel(logging.WARNING)
     handler = logging.FileHandler(filename='data/red/discord.log', encoding='utf-8', mode='a')
-    handler.setFormatter(logging.Formatter('%(asctime)s %(message)s', datefmt="[%d/%m/%Y %H:%M]"))
+    handler.setFormatter(logging.Formatter('%(asctime)s %(module)s %(lineno)d %(message)s', datefmt="[%d/%m/%Y %H:%M]"))
+    logger.addHandler(handler)
+
+    logger = logging.getLogger("red")
+    logger.setLevel(logging.WARNING)
+    handler = logging.FileHandler(filename='data/red/red.log', encoding='utf-8', mode='a')
+    handler.setFormatter(logging.Formatter('%(asctime)s %(module)s %(lineno)d %(message)s', datefmt="[%d/%m/%Y %H:%M]"))
     logger.addHandler(handler)
 
 def get_answer():
@@ -433,7 +469,7 @@ def load_cogs():
     extensions = list_cogs()
 
     if extensions: print("\nLoading cogs...\n")
-    
+
     failed = []
     for extension in extensions:
         if extension in register:
@@ -460,7 +496,7 @@ def load_cogs():
     if extensions:
         with open('data/red/cogs.json', "w") as f:
             f.write(json.dumps(data))
-    
+
     if failed:
         print("\nFailed to load: ", end="")
         for m in failed:
@@ -475,8 +511,24 @@ def main():
     check_configs()
     set_logger()
     load_cogs()
-    bot.command_prefix = settings.prefixes
-    yield from bot.login(settings.email, settings.password)
+    if settings.prefixes != []:
+        bot.command_prefix = settings.prefixes
+    else:
+        print("No prefix set. Defaulting to !")
+        bot.command_prefix = ["!"]
+        if settings.owner != "id_here":
+            print("Use !set prefix to set it.")
+        else:
+            print("Once you're owner use !set prefix to set it.")
+    if settings.owner == "id_here":
+        print("Owner has not been set yet. Do '{}set owner' in chat to set yourself as owner.".format(bot.command_prefix[0]))
+    else:
+        owner.hidden = True  # Hides the set owner command from help
+    if settings.login_type == "token":
+        _token.hidden = True
+        yield from bot.login(settings.email)
+    else:
+        yield from bot.login(settings.email, settings.password)
     yield from bot.connect()
 
 if __name__ == '__main__':
@@ -484,10 +536,12 @@ if __name__ == '__main__':
     try:
         loop.run_until_complete(main())
     except discord.LoginFailure:
+        logger.error(traceback.format_exc())
         print("Invalid login credentials. Restart Red and configure it properly.")
-        os.remove('data/red/settings.json') # Hopefully this won't backfire in case of discord servers' problems
-    except Exception as e:
-        print(e)
+        shutil.copy('data/red/settings.json', 'data/red/settings-{}.bak'.format(int(time.time())))
+        os.remove('data/red/settings.json')  # Hopefully this won't backfire in case of discord servers' problems
+    except:
+        logger.error(traceback.format_exc())
         loop.run_until_complete(bot.logout())
     finally:
         loop.close()

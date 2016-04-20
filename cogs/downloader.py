@@ -70,7 +70,7 @@ class Downloader:
         answer = await self.bot.wait_for_message(timeout=15, author=ctx.message.author)
         if answer is None:
             await self.bot.say("Ok then, you can reload cogs with `{}reload <cog_name>`".format(ctx.prefix))
-        elif answer.content.lower().strip() == "yes":
+        elif answer.content.lower().strip() in ["yes", "y"]:
             for cog in installed_user_cogs:
                 self.bot.unload_extension("cogs." + cog)
                 self.bot.load_extension("cogs." + cog)
@@ -87,7 +87,7 @@ class Downloader:
             answer = await self.bot.wait_for_message(timeout=15, author=ctx.message.author)
             if answer is None:
                 await self.bot.say("Ok then, you can load it with `{}load {}`".format(ctx.prefix, cog))
-            elif answer.content.lower().strip() == "yes":
+            elif answer.content.lower().strip() in ["yes", "y"]:
                 set_cog("cogs." + cog, True)
                 self.bot.unload_extension("cogs." + cog)
                 self.bot.load_extension("cogs." + cog)
@@ -139,7 +139,7 @@ class Downloader:
                 print("Downloading cogs repo...")
                 call(["git", "clone", "https://github.com/Twentysix26/Red-Cogs.git", "data/downloader"]) # It's blocking but it shouldn't matter
             else:
-                Popen(["git", "-C", "data/downloader", "pull"])
+                Popen(["git", "-C", "data/downloader", "pull", "-q"])
 
 def setup(bot):
     n = Downloader(bot)
