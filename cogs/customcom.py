@@ -128,7 +128,7 @@ class CustomCommands:
 
         msg = message.content
         server = message.server
-        user = ctx.message.author
+        user = message.author
         prefix = self.get_prefix(msg)
 
         if prefix and server.id in self.c_commands.keys():
