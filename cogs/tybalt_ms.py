@@ -47,6 +47,7 @@ class TybaltMegaserver:
         role_uk = self.get_role_by_name(ctx.message.server, "uk")
         role_na = self.get_role_by_name(ctx.message.server, "na")
         try:
+            if role_uk in author.roles :
                 await self.bot.say("Sorry, the borders are closed. Blame Brexit.")
             elif role_eu not in author.roles :
                 await self.bot.remove_roles(author, role_uk, role_na)
