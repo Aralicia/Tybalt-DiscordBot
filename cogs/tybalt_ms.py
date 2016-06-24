@@ -72,7 +72,7 @@ class TybaltMegaserver:
         role_uk = self.get_role_by_name(ctx.message.server, "uk")
         role_na = self.get_role_by_name(ctx.message.server, "na")
         try:
-            if role_eu not in author.roles :
+            if role_uk not in author.roles :
                 await self.bot.remove_roles(author, role_eu, role_na)
                 await self.bot.add_roles(author, role_uk)
                 await self.bot.say("Done ! You are now a UK player.")
