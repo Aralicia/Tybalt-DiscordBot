@@ -86,7 +86,7 @@ class CustomCommands:
         else:
             await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(username))
 
-    @commands.command(pass_context=True, no_pm=True)
+    @commands.command(pass_context=True, no_pm=True, aliases=["customcom"])
     async def customcommands(self, ctx):
         """Shows custom commands list"""
         server = ctx.message.server

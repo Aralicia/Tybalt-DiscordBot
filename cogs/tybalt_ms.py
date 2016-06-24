@@ -18,15 +18,16 @@ class TybaltMegaserver:
         !na
         """
         author = ctx.message.author
-        role_add = self.get_role_by_name(ctx.message.server, "na")
-        role_remove = self.get_role_by_name(ctx.message.server, "eu")
+        role_eu = self.get_role_by_name(ctx.message.server, "eu")
+        role_uk = self.get_role_by_name(ctx.message.server, "uk")
+        role_na = self.get_role_by_name(ctx.message.server, "na")
         try:
-            if role_add not in author.roles :
-                await self.bot.remove_roles(author, role_remove)
-                await self.bot.add_roles(author, role_add)
+            if role_na not in author.roles :
+                await self.bot.remove_roles(author, role_eu, role_uk)
+                await self.bot.add_roles(author, role_na)
                 await self.bot.say("Done ! You are now a NA player.")
             else :
-                await self.bot.remove_roles(author, role_remove, role_add)
+                await self.bot.remove_roles(author, role_na)
                 await self.bot.say("Well, you **were** a NA player.")
         except discord.Forbidden:
             await self.bot.say("I need permissions to edit roles first.")
@@ -42,16 +43,42 @@ class TybaltMegaserver:
         !eu
         """
         author = ctx.message.author
-        role_add = self.get_role_by_name(ctx.message.server, "eu")
-        role_remove = self.get_role_by_name(ctx.message.server, "na")
+        role_eu = self.get_role_by_name(ctx.message.server, "eu")
+        role_uk = self.get_role_by_name(ctx.message.server, "uk")
+        role_na = self.get_role_by_name(ctx.message.server, "na")
         try:
-            if role_add not in author.roles :
-                await self.bot.remove_roles(author, role_remove)
-                await self.bot.add_roles(author, role_add)
+            if role_eu not in author.roles :
+                await self.bot.remove_roles(author, role_uk, role_na)
+                await self.bot.add_roles(author, role_eu)
                 await self.bot.say("Done ! You are now a EU player.")
             else :
-                await self.bot.remove_roles(author, role_remove, role_add)
+                await self.bot.remove_roles(author, role_eu)
                 await self.bot.say("Well, you **were** a EU player.")
+        except discord.Forbidden:
+            await self.bot.say("I need permissions to edit roles first.")
+        except Exception as e:
+            print(e)
+            await self.bot.say("Something went wrong.")
+
+    @commands.command(pass_context=True, no_pm=True, aliases=["UK"])
+    async def uk(self, ctx):
+        """Join UK group/role
+
+        Example:
+        !uk
+        """
+        author = ctx.message.author
+        role_eu = self.get_role_by_name(ctx.message.server, "eu")
+        role_uk = self.get_role_by_name(ctx.message.server, "uk")
+        role_na = self.get_role_by_name(ctx.message.server, "na")
+        try:
+            if role_eu not in author.roles :
+                await self.bot.remove_roles(author, role_eu, role_na)
+                await self.bot.add_roles(author, role_uk)
+                await self.bot.say("Done ! You are now a UK player.")
+            else :
+                await self.bot.remove_roles(author, role_uk)
+                await self.bot.say("Well, you **were** a UK player.")
         except discord.Forbidden:
             await self.bot.say("I need permissions to edit roles first.")
         except Exception as e:
@@ -72,7 +99,7 @@ class TybaltMegaserver:
             await self.bot.remove_roles(author, role_eu)
             await self.bot.remove_roles(author, role_na)
 
-            await self.bot.say("You just lost EU and NA role. Naisled it !")
+            await self.bot.say("You just lost EU and NA role. Naisled it ! <@&167756221955178496>")
         except discord.Forbidden:
             await self.bot.say("I need permissions to edit roles first.")
         except Exception as e:
