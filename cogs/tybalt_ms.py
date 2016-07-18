@@ -23,7 +23,7 @@ class TybaltMegaserver:
         role_na = self.get_role_by_name(ctx.message.server, "na")
         try:
             if role_na not in author.roles :
-                await self.bot.replace_roles(author, self.get_new_roles(author.roles, [role_na], [role_eu, role_uk]))
+                await self.bot.replace_roles(author, *self.get_new_roles(author.roles, [role_na], [role_eu, role_uk]))
                 await self.bot.say("Done ! You are now a NA player.")
             else :
                 await self.bot.remove_roles(author, role_na)
@@ -49,7 +49,7 @@ class TybaltMegaserver:
             if role_uk in author.roles :
                 await self.bot.say("Sorry, the borders are closed. Blame Brexit.")
             elif role_eu not in author.roles :
-                await self.bot.replace_roles(author, self.get_new_roles(author.roles, [role_eu], [role_na, role_uk]))
+                await self.bot.replace_roles(author, *self.get_new_roles(author.roles, [role_eu], [role_na, role_uk]))
                 await self.bot.say("Done ! You are now a EU player.")
             else :
                 await self.bot.remove_roles(author, role_eu)
@@ -73,7 +73,7 @@ class TybaltMegaserver:
         role_na = self.get_role_by_name(ctx.message.server, "na")
         try:
             if role_uk not in author.roles :
-                await self.bot.replace_roles(author, self.get_new_roles(author.roles, [role_uk], [role_na, role_eu]))
+                await self.bot.replace_roles(author, *self.get_new_roles(author.roles, [role_uk], [role_na, role_eu]))
                 await self.bot.say("Done ! You are now a UK player.")
             else :
                 await self.bot.remove_roles(author, role_uk)
