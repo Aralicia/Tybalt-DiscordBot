@@ -14,7 +14,7 @@ class CustomCommands:
         self.c_commands = fileIO("data/customcom/commands.json", "load")
 
     @commands.command(pass_context=True, no_pm=True)
-    #@checks.mod_or_permissions(manage_server=True)
+    #@checks.mod_or_permissions(administrator=True)
     async def addcom(self, ctx, command : str, *, text):
         """Adds a custom command
 
@@ -40,7 +40,7 @@ class CustomCommands:
             await self.bot.say("{} This command already exists. Use editcom to edit it.".format(username))
 
     @commands.command(pass_context=True, no_pm=True)
-    #@checks.mod_or_permissions(manage_server=True)
+    #@checks.mod_or_permissions(administrator=True)
     async def editcom(self, ctx, command : str, *, text):
         """Edits a custom command
 
@@ -64,7 +64,7 @@ class CustomCommands:
              await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(username))
 
     @commands.command(pass_context=True, no_pm=True)
-    #@checks.mod_or_permissions(manage_server=True)
+    #@checks.mod_or_permissions(administrator=True)
     async def delcom(self, ctx, command : str):
         """Deletes a custom command
 
