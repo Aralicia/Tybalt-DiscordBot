@@ -121,7 +121,7 @@ class CustomCommands:
             cmdlist = self.c_commands[server.id]
             if cmdlist:
                 msg = random.choice(list(cmdlist));
-                await self.bot.send_message(ctx.message.channel, '{} {}'.format(username, cmdlist[msg]))
+                await self.bot.send_message(ctx.message.channel, '{} !{} \n{}'.format(username, msg, cmdlist[msg]))
 
     async def checkCC(self, message):
         if message.author.id == self.bot.user.id or len(message.content) < 2 or message.channel.is_private:

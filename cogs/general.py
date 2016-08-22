@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from .utils import checks
 from .utils.chat_formatting import *
 from random import randint
 from random import choice as randchoice
@@ -201,6 +202,7 @@ class General:
         await self.bot.say(data)
         
     @commands.command()
+    @checks.is_owner()
     async def urban(self, *, search_terms : str, definition_number : int=1):
         """Urban Dictionary search
 

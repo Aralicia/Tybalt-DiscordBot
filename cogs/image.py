@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from .utils import checks
 from random import randint
 import aiohttp
 import random
@@ -14,6 +15,7 @@ class Image:
     """Commands section"""
 
     @commands.command(no_pm=True)
+    @checks.is_owner()
     async def imgur(self, *text):
         """Retrieves a picture from imgur
 
@@ -48,6 +50,7 @@ class Image:
                 await self.bot.say("Type help imgur for details.")
 
     @commands.command(no_pm=True)
+    @checks.is_owner()
     async def gif(self, *text):
         """Retrieves first search result from giphy
         
@@ -72,6 +75,7 @@ class Image:
             await self.bot.say("gif [text]")
 
     @commands.command(no_pm=True)
+    @checks.is_owner()
     async def gifr(self, *text):
         """Retrieves a random gif from a giphy search
 
