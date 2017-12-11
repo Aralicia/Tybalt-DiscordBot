@@ -98,6 +98,8 @@ class Settings:
             self.default_admin = args.admin_role
         if args.mod_role:
             self.default_mod = args.mod_role
+        if args.co_owner:
+            self.co_owners = args.co_owner
 
         self.no_prompt = args.no_prompt
         self.self_bot = args.self_bot
@@ -105,7 +107,6 @@ class Settings:
         self._no_cogs = args.no_cogs
         self.debug = args.debug
         self._dry_run = args.dry_run
-        self.co_owners = args.co_owner
 
         self.save_settings()
 
@@ -160,8 +161,8 @@ class Settings:
     def co_owners(self):
         return self.bot_settings["CO_OWNERS"]
 
-    @owner.setter
-    def owner(self, value):
+    @co_owners.setter
+    def co_owners(self, value):
         self.bot_settings["CO_OWNERS"] = value
 
     @property
