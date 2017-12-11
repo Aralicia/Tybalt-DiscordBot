@@ -157,6 +157,14 @@ class Settings:
         self.bot_settings["OWNER"] = value
 
     @property
+    def co_owners(self):
+        return self.bot_settings["CO_OWNERS"]
+
+    @owner.setter
+    def owner(self, value):
+        self.bot_settings["CO_OWNERS"] = value
+
+    @property
     def token(self):
         return os.environ.get("RED_TOKEN", self.bot_settings["TOKEN"])
 
