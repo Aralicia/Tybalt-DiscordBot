@@ -73,6 +73,11 @@ Who has a Safari skin?`Caitlyn
 Who says "Time for a shakedown." in game?`Caitlyn
 Who has the longest base range at level 1?`Caitlyn
 Who uses cupcakes as a weapon?`Caitlyn
+Who is also known as the Steel Shadow?`Camille
+How old is Camille?`80`Eighty
+What is Camille's last name?`Ferros
+Whose family motto is "For family, I will give."?`Camille
+Who says "Precision is the difference between a butcher and a surgeon." when picked?`Camille
 Who does Cassiopeia betray?`Sivir
 The Mythic Cassiopeia skin was released to celebrate the release of the server for which country?`Greece`Greek
 Who has a skill called "Miasma"?`Cassiopeia
@@ -119,14 +124,17 @@ Who does Elise worship?`Vilemaw
 Who has a skill called "Neurotoxin"?`Elise
 What champion has the season 3 victorious skin?`Elise
 Who has a Masquerade skin?`Evelynn
-Who is also known as the "Widowmaker"?`Evelynn
-Who says "It takes a lot of effort to move like this in heels."?`Evelynn
-Who has a skill called "Dark Frenzy"?`Evelynn
+Whose title is the name of their old ultimate?`Evelynn (Agony's Embrace)`Evelynn
+Who calls Ahri a "skank" and a "floozy" when using taunts?`Evelynn
+Who killed Vayne's parents?`Evelynn
+Who does Vayne refer to as "the Horned Woman"?`Evelynn
+Who does Evelynn say "I can make you do a lot more than jingle, space man." in one of her taunts?`Bard
 Aside from Evelynn, which champion could theoretically stay stealthed forever?`Teemo
 Who found Wriggle's Lantern?`Ezreal
 Who is the hermit shopkeeper on the Howling Abyss related to?`Ezreal
 Who was the first champion to have an Ultimate skin?`Ezreal
 Whose occupation is a cartographer?`Ezreal
+Who is the only male Star Guardian?`Ezreal
 Where did Ezreal find the amulet that allowed him to use magic?`Shurima Desert`Shurima
 Who says "Time to get our hands dirty."?`Ezreal
 Who is known as the "Harbinger of Doom"?`Fiddlesticks
@@ -141,15 +149,16 @@ Who has a skill called "Bladework"?`Fiora
 What is the name of Fiora's brother?`Ammdar
 What is the name of Fizz's shark?`Chomper
 Whose ult makes the corpses of small champions disappear?`Fizz
+What does Fizz use as a weapon?`Seastone Trident
 Who was born in the Guardian's Sea?`Fizz
 Who says "I'll show them a watery grave."?`Fizz
 Whose champion design is based on an axolotl?`Fizz
-Who is also known as the "Sentinel's Sorrow"?`Galio
-Who has a skill called "Bulwark"?`Galio
+Who is also known as the "Walking National Monument"?`Galio
+Who has a skill called "Justice Punch"?`Galio
 Who created Galio?`Durand
 Whose dance is from Beauty and the Beast?`Galio
-Who has the highest attainable AP at level 1 on Summoner's Rift?`Galio
 What color is Galio in his legendary skin?`Red
+Who is the only mage Galio likes?`Lux
 Who does Captain Gangplank say "Prepare to be boarded." to?`Miss Fortune
 Whose warship did Gangplank steal?`Swain
 Who is Gangplank's ex-girlfriend?`Illaoi
@@ -191,9 +200,16 @@ Who has the highest potential tenacity in the game?`Irelia
 Who is known as the "Will of the Blades"?`Irelia
 Who says "This battle will be won."?`Irelia
 Name one of the champions that has the Mantle of Decorum?`Irelia or Karma`Irelia`Karma
+Who cannot damage any non-epic neutral monsters?`Ivern
+What is the name of Ivern's summoned sentinel?`Daisy
+Who felled the God Willow?`Ivern
+Where was Ivern originally from when he was human?`Freljord
+What does Ivern find scary?`Rift Herald
+Who was once known as "the Cruel"?`Ivern
 Who has the Victorious skin for season 2?`Janna
 Who is known as the "Storm's Fury"?`Janna
 What is Janna's last name?`Windforce
+What is the name of Janna's bird companion?`Zephyr
 Who is the only champion that can shield turrets?`Janna
 Who says "For tranquility."?`Janna
 Who is the "Exemplar of Demacia"?`Jarvan IV`j4`jarvan 4
@@ -219,6 +235,8 @@ Who has a skill called "Curtain Call"?`Jhin
 Who says "I accidentally did that on purpose."?`Jinx
 What is the name of Jinx's smaller gun?`Pow-pow`pow pow
 What is the name of Jinx's bigger gun?`Fishbones
+What is the name of Star Guardian Jinx's white gun?`Shiro
+What is the name of Star Guardian Jinx's black gun?`Kuro
 Who has a Firecracker skin?`Jinx
 Who used to have a crush on Jinx before she went crazy?`Ekko
 Who is related to the Ruined King (Blade of the Ruined King)?`Kalista
@@ -251,6 +269,12 @@ What champion has the same voice actress as Kayle?`Soraka
 Which champion is the only champion capable of giving full invulnerability to damage?`Kayle
 Who is the only female champion with a Riot skin?`Kayle
 Who says "Are... You sure you're not in the wrong league?" as a taunt?`Kayle
+Who is the band Pentakill's back up singer?`Kayle
+What is the name of Kayn's weapon?`Rhaast
+What is Kayn's first name?`Shieda
+Who has a skill called "Blade's Reach"?`Kayn
+What species is Kayn?`Human
+What country was Kayn born in?`Noxus
 Who is the "Heart of the Tempest"?`Kennen
 Who has a Deadly skin which is a parody of Deadpool?`Kennen
 Who says "The eyes never lie." when picked during champion select?`Kennen
@@ -267,6 +291,11 @@ Who has a Shadowfire skin?`Kindred
 The "Tally-men" are followers of whom?`Kindred
 Whose lore tells the story of Magga, a famous actress?`Kindred
 Who has a skill called "Dance of Arrows"?`Kindred
+What does Kled's secondary bar measure?`Courage
+What is the name of Kled's friend and mount?`Skaarl
+Who is also known as "The Great Hussar", "The Mountain Admiral", "The High General Marshal Sergeant", "Lord Colonel Major Centurion", "Rear Forward Brigadier Admiral", "Forward Admiral Major", "Sir Admiral Major", "Lieutenant Sergeant Commodore", "Sergeant General Colonel", "Sergeant Double Admiral", "High Major Commodore of the First Legion Third Multiplication Double Admiral Artillery Vanguard Company", and "Lord Major Admiral of the Second Legion's Forward Artillery-Cavalary Multiplication"?`Kled
+What nation is Kled from?`Noxus
+What immortal species is Kled's mount?`desert drakalops
 Who says "Terror coming...daddy coming!"?`Kog'maw`kogmaw`Kog maw
 Who has a Reindeer skin?`Kog'maw`kogmaw`Kog maw
 Who is the "Mouth of the Abyss"?`Kog'maw`kogmaw`Kog maw
@@ -304,6 +333,7 @@ Who is the only champion with a Polymorph?`Lulu
 In the Bittersweet Lulu skin, what does her Whimsy turn her enemies into?`Cupcakes`cupcake
 Who says "Focus on the battle."?`Lux
 Who has an Imperial skin?`Lux
+Who was the original Star Guardian?`Lux
 Who is the only female with a commando skin?`Lux
 Who is Lux supposedly dating?`Ezreal
 Whose ult was originally named "Finales Funkeln"?`Lux
@@ -332,6 +362,7 @@ Who has the longest DoT (damage over time) debuff in the game?`Mordekaiser
 What is the name of Mordekaiser's mace?`Nightfall
 Who is also known as "the Iron Revenant"?`Mordekaiser
 Who says "You only need to click once, fool!" in game (breaking the fourth wall)?`Mordekaiser
+Who plays guitar for the band "Pentakill"?`Mordekaiser
 Who says "We'll bring them pain." when picked during champion select?`Morgana
 Who has a skin that was released to celebrate the Latin America server?`Morgana
 Who has the highest base AD among ranged champions at level 18?`Morgana
@@ -378,6 +409,12 @@ What is Orianna's occupation?`Dancer
 What was Orianna's father's name?`Corin Reveck`Corin
 Who is Orianna's pet and protector?`The Ball`Ball
 Who has the least base AD at level 1?`Orianna
+Who has an ability called "Searing Charge"?`Ornn
+Who crafted The Howling Abyss and the bridge above it?`Ornn
+Who has a Thunder Lord skin?`Ornn
+Who crafted Braum's Enchanted Ram Door?`Ornn
+Who is known as the "Fire Below the Mountain"?`Ornn
+Who crafted Fizz's Seastone Trident?`Ornn
 What other profession has Pantheon always wanted to have?`Baker
 Who is also known as the "Artisan of War"?`Pantheon
 Whose weapons formerly belonged to someone named Zeonia?`Pantheon
@@ -394,6 +431,11 @@ Who has a Phoenix skin?`Quinn
 Who is dating Jarvan IV (according to Riot Ransom)?`Quinn
 Who does Valor (Quinn's eagle) not respect?`Garen
 What is the name of Quinn's dead brother?`Caleb
+Who has a skill called "Battle Dance"?`Rakan
+What is Rakan's favorite human food?`Chocolate
+What tribe do Rakan and Xayah belong to?`Lhotlan
+What are Rakan's wings disguised as to blend in with humans?`His Cloak`cloak
+Who has the lowest basic attack range of all ranged champions?`Rakan
 Who has the least number of quotes?`Rammus
 Who has a Molten skin?`Rammus
 According to the dating service run by Blitzcrank, what is Rammus' best match?`A cactus`cactus
@@ -425,7 +467,9 @@ Who thinks that Heimerdinger is a sellout?`Rumble
 Who has a skill called "flamespitter"?`Rumble
 Who says "Let's get in the fight!" when picked in champion select?`Rumble
 What is the name of Rumble's robot?`Tristy
-Who is also known as the "Rogue Mage"?`Ryze
+Who is also known as the "Rune Mage"?`Ryze
+Who used to be known as the "Rogue Mage"?`Ryze
+Who was the first champion to have 2 Harrowing skins?`Ryze
 Who tells you to "Take this scroll and stick it somewhere safe."?`Ryze
 Whose occupation is Warlock?`Ryze
 Who was the first champion to have 9 skins?`Ryze
@@ -442,6 +486,7 @@ Who had a skin released to celebrate League of Legends' first anniversary in Kor
 Who is "Valoran's first fully functioning homicidal comic"?`Shaco
 Who has the only global teleport?`Shen
 Who is the "Eye of Twilight"?`Shen
+Who was the first champion to use energy as a resource?`Shen
 Who is the leader of the Kinkou order?`Shen
 Who says "A demonstration of superior judgement." when picked in champion select?`Shen
 Who carries two ninjato?`Shen
@@ -453,7 +498,7 @@ Which Demacian disapproves of Shyvana due to her lack of self-control?`Garen
 Who has a skill called "Flame Breath"?`Shyvana
 Who has a skin that was made in celebration of the 2014 World Championship?`Shyvana
 Who was the first champion ever created?`Singed
-Who was once Warwick's apprentice?`Singed
+Who augmented Warwick?`Singed
 Who supplies Gragas with brewing equipment?`Singed
 Who invented the weapon used to destroy Master Yi's home village?`Singed
 Who has a skill called "Fling"?`Singed
@@ -478,6 +523,7 @@ What is the name of Sona's weapon?`etwahl
 What is Sona's last name?`Buvelle
 Who says "Accelerated movement, I concur." in game?`Sona
 Who is also known as the "Maven of the Strings"?`Sona
+Who plays Keyboard for the band "Pentakill"?`Sona
 Who is responsible for reviving Irelia and binding her life force to her blades?`Soraka
 Who was Soraka betrayed by?`Warwick
 Who says "This is my path" in game?`Soraka
@@ -499,6 +545,10 @@ Who has the most lines in the game?`Tahm Kench`tahmkench
 Who says "Savor the misery."?`Tahm Kench`tahmkench
 Who has a skill called "Devour"?`Tahm Kench`tahmkench
 Whose race is "River Demon"?`Tahm Kench`tahmkench
+What is Taliyah's favorite ice cream flavor?`Rocky Road
+How old is Taliyah?`16`sixteen
+Who nicknamed Taliyah "little sparrow"?`Yasuo
+Who gave Yasuo the thread he uses to tie up his hair?`Taliyah
 Who is Talon's rival?`Quinn
 Who is also known as the Blade's Shadow?`Talon
 Who has a skill called "Cutthroat"?`Talon
@@ -512,7 +562,8 @@ Who is the smallest champion in the game itself?`Teemo
 Who is rumored to be Teemo's girlfriend?`Tristana
 Who stopped Veigar during his evil plan in Bandle City?`Teemo
 What type of poison does Teemo use in his blowgun?`Arjunta
-Who has a Badger skin?`Teemo
+Who has a Badger skin?`
+Who was the original member of the Omega Squad?`Teemo
 Who has a skill called "The Box"?`Thresh
 Who has a skill that says "You have opened the box. Your prize: death." in the Death Recap?`Thresh
 Who says "I am the thing under the bed"?`Thresh
@@ -550,11 +601,13 @@ Who killed Udyr's predecessor and mentor?`Lissandra
 Where does Udyr live?`Freljord
 Which character cannot max out all of their skills?`Udyr
 Who brought Udyr to Ionia to calm his rage and meet the animal spirits that he uses?`Lee Sin`leesin
-Who cut Urgot in half?`Garen
+Who cut Urgot in the mines?`Baron Voss`Voss
+In their original lore, who cut Urgot in half?`Garen
 Whose dance is a reference to Kirby's victory dance?`Urgot
 Who was Urf's Corpse sold to?`Butcher Urgot`Urgot
 When Urgot was a soldier, who was his commanding officer?`Sion
-Who did Professor Stanwick Pididly resurrect?`Urgot
+In the original lore, who did Professor Stanwick Pididly resurrect?`Urgot
+Whose ultimate used to be called "Hyper-Kinteic Position Reverser"?`Urgot
 Who is the only male Heartseeker?`Varus
 Whose name is the medical term for a joint deformity causing bowleggedness?`Varus
 Who has an owl insignia on his chest?`Varus
@@ -569,6 +622,7 @@ Who has the most laugh emotes?`Veigar
 Who tried to steal Bandle City's Mothership?`Veigar
 Who can continuously increase their AP by using a skill?`Veigar
 Who has a Leprechaun skin?`Veigar
+Who has a Final Boss skin?`Veigar
 Who says "I will swallow your soul."?`Veigar
 Who learns about Valoran by disintegrating subjects?`Vel'koz`vel koz`velkoz
 Who gains 3.141592 (pi) AD per level?`Vel'koz`vel koz`velkoz
@@ -595,15 +649,20 @@ What species is Volibear?`Ursine
 Who says "Let the storm follow in my wake." when picked in champion select?`Volibear
 Who has a skill called "Majestic Roar"?`Volibear
 Who killed Urf?`Warwick
-Who is also known as "the Blood Hunter"?`Warwick
+Who is also known as "the Uncaged Wrath of Zaun"?`Warwick
 If you search for Urf in champion select, whose name pops up?`Warwick
-Who has a skill called Infinite Duress?`Warwick
+Who is also known as Subject #1088?`Warwick
 Who has a Hyena skin?`Warwick
 Warwick betrayed Soraka to get her heart for who?`Singed
 Who has the skill with the highest AD Ratio in the game?`Wukong
 Who named Wukong, "Wukong"?`Master Yi`Yi
 Who created Wukong's staff?`Doran
 Who is the only champion with a stealth ability who is not classified as an assassin?`Wukong
+What species are Rakan and Xayah?`Vastaya
+Who has a skill called "Double Daggers"?`Xayah
+Who is also known as "the Rebel"?`Xayah
+Who did Xayah and Rakan fight in the "Wild Magic" Promo video?`Zed
+Who has a Cosmic Dusk skin?`Xayah
 Who has a Runeborn skin?`Xerath
 Who has a skill called "Arcanopulse"?`Xerath
 Who says "I will be free." when picked during champion select?`Xerath
@@ -621,10 +680,10 @@ Who is also known as the "Unforgiven"?`Yasuo
 What is the name of Yasuo's brother?`Yone
 Whose champion design is based on the samurai?`Yasuo
 What is Yorick's last name?`Mori
-Whose race is Wight?`Yorick
-Who has a skill called "Omen of Death"?`Yorick
+Whose ultimate used to be "Omen of Death"?`Yorick
 Who plays the bass in the band 'Pentakill'?`Yorick
-Who works as a ferryman for the undead?`Yorick
+What type of weapon does Yorick weild?`Monk's Spade`monks spade`spade
+Where was Yorick born?`Blessed Isles
 Who is the Zaun Amorphous Combatant?`ZAC
 Who is the only champion with 2 laugh animations?`Zac
 Who is the only champion from Zaun who was raised by two loving parents?`Zac
