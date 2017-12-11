@@ -77,20 +77,6 @@ class CustomCommands:
         else:
              await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(username))
 
-    @commands.command(pass_context=True, no_pm=True)
-    #@checks.mod_or_permissions(administrator=True)
-    async def delcom(self, ctx, command : str):
-                dataIO.save_json(self.file_path, self.c_commands)
-                await self.bot.say("Custom command successfully edited.")
-            else:
-                await self.bot.say("That command doesn't exist. Use "
-                                   "`{}customcom add` to add it."
-                                   "".format(ctx.prefix))
-        else:
-            await self.bot.say("There are no custom commands in this server."
-                               " Use `{}customcom add` to start adding some."
-                               "".format(ctx.prefix))
-
     @customcom.command(name="delete", pass_context=True)
     #@checks.mod_or_permissions(administrator=True)
     async def cc_delete(self, ctx, command : str):
