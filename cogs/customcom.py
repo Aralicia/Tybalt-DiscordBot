@@ -37,6 +37,9 @@ class CustomCommands:
         user = ctx.message.author
         username = '<@'+user.id+'>'
         command = command.lower()
+        if ("<@" in text) or ("<#" in text):
+            await self.bot.say("That command contains a mention. I can't allow that.")
+            return
         if command in self.bot.commands:
             await self.bot.say("That command is already a standard command.")
             return
@@ -65,12 +68,15 @@ class CustomCommands:
         user = ctx.message.author
         username = '<@'+user.id+'>'
         command = command.lower()
+        if ("<@" in text) or ("<#" in text):
+            await self.bot.say("That command contains a mention. I can't allow that.")
+            return
         if server.id in self.c_commands:
             cmdlist = self.c_commands[server.id]
             if command in cmdlist:
                 cmdlist[command] = text
                 self.c_commands[server.id] = cmdlist
-                fileIO("data/customcom/commands.json", "save", self.c_commands)
+                dataIO.save_json(self.file_path, self.c_commands)
                 await self.bot.say("{} Custom command '{}' successfully edited.".format(username, command))
             else:
                 await self.bot.say("{} That command doesn't exist. Use addcom [command] [text]".format(username))
