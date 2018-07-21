@@ -28,7 +28,7 @@ class TybaltWiki:
             f = { 'search' : msg}
 
             # uses the wiki API to do a real search. Links for articles are posted if there is any
-            url = "https://wiki.guildwars2.com/api.php?action=opensearch&"+urllib.parse.urlencode(f)
+            url = "https://wiki.guildwars2.com/api.php?action=opensearch&limit=11&redirects=resolve&"+urllib.parse.urlencode(f)
 
             async with aiohttp.get(url, headers={}) as r:
                 data = await r.text()
