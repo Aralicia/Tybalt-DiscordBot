@@ -52,7 +52,8 @@ class Bot(commands.Bot):
             Requires a Bot instance and a Message object to be
             passed as arguments.
             """
-            return bot.settings.get_prefixes(message.server)
+            prefixes = bot.settings.get_prefixes(message.server)
+            return commands.when_mentioned_or(*prefixes)(bot, message)
 
         self.counter = Counter()
         self.uptime = datetime.datetime.utcnow()  # Refreshed before login
