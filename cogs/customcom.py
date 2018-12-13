@@ -14,7 +14,9 @@ class CustomCommands:
     def __init__(self, bot):
         self.bot = bot
         self.file_path = "data/customcom/commands.json"
+        self.file_stats_path = "data/customcom/stats.json"
         self.c_commands = dataIO.load_json(self.file_path)
+        self.c_commandStats = dataIO.load_json(self.file_stats_path)
 
     @commands.group(aliases=["cc"], pass_context=True, no_pm=True)
     async def customcom(self, ctx):
@@ -83,7 +85,7 @@ class CustomCommands:
         else:
              await self.bot.say("{} There are no custom commands in this server. Use addcom [command] [text]".format(username))
 
-    @customcom.command(name="delete", pass_context=True)
+    @customcom.command(name="delete",  aliases=["del"], pass_context=True)
     #@checks.mod_or_permissions(administrator=True)
     async def cc_delete(self, ctx, command : str):
         """Deletes a custom command
@@ -108,7 +110,7 @@ class CustomCommands:
                                " Use `{}customcom add` to start adding some."
                                "".format(ctx.prefix))
 
-    @customcom.command(name="list", pass_context=True)
+    @customcom.command(name="list", aliases=["li"], pass_context=True)
     async def cc_list(self, ctx):
         """Shows custom commands list"""
         server = ctx.message.server
@@ -159,10 +161,12 @@ class CustomCommands:
             cmdlist = self.c_commands[server.id]
             cmd = message.content[len(prefix):]
             if cmd in cmdlist:
+                self.log_cc(server, cmd)
                 cmd = cmdlist[cmd]
                 cmd = '{} {}'.format(username, self.format_cc(cmd, message))
                 await self.bot.send_message(message.channel, cmd)
             elif cmd.lower() in cmdlist:
+                self.log_cc(server, cmd)
                 cmd = cmdlist[cmd.lower()]
                 cmd = '{} {}'.format(username, self.format_cc(cmd, message))
                 await self.bot.send_message(message.channel, cmd)
@@ -179,6 +183,17 @@ class CustomCommands:
             param = self.transform_parameter(result, message)
             command = command.replace("{" + result + "}", param)
         return command
+
+    def log_cc(self, server, cmd):
+        if server.id not in self.c_commandStats:
+             self.c_commandStats[server.id] = {}
+        cmdlist = self.c_commandStats[server.id]
+        if cmd not in cmdlist:
+            cmdlist[cmd] = 1
+        else:
+            cmdlist[cmd] = cmdlist[cmd] + 1
+        self.c_commandStats[server.id] = cmdlist
+        dataIO.save_json(self.file_stats_path, self.c_commandStats)
 
     def transform_parameter(self, result, message):
         """
@@ -213,6 +228,10 @@ def check_folders():
 
 def check_files():
     f = "data/customcom/commands.json"
+    if not dataIO.is_valid_json(f):
+        print("Creating empty commands.json...")
+        dataIO.save_json(f, {})
+    f = "data/customcom/stats.json"
     if not dataIO.is_valid_json(f):
         print("Creating empty commands.json...")
         dataIO.save_json(f, {})
